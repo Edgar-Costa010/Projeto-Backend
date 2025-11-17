@@ -1,35 +1,36 @@
 # Projeto-Backend
 
-# 🏥 VidaPlus – Sistema de Gestão Hospitalar
+Trabalho acadêmico da disciplina Eletiva IV - Projeto multidisciplinar, do 5º período da graduação em Análise e desenvolvimento de Sistemas da Universidade Uninter - Centro Universitário Internacional
 
-O **VidaPlus** é um Sistema de Gestão Hospitalar e Serviços de Saúde desenvolvido em **C#** com **.NET Core** no padrão **MVC**, utilizando **Entity Framework Core** e **SQLite** como tecnologias de persistência. Ele foi projetado para otimizar e integrar processos administrativos, clínicos e operacionais de instituições de saúde.
+# VidaPlus – Sistema de Gestão Hospitalar (SGHSS)
 
----
+O **VidaPlus** é um Sistema de Gestão Hospitalar e Serviços de Saúde desenvolvido em **C#** com **.NET Core** no padrão **MVC**, utilizando **Entity Framework Core** e **SQLite** como tecnologias de persistência de dados.
 
-## 🚀 Funcionalidades Principais
+## Funcionalidades Principais
 
 ### 🧑‍⚕️ Gestão de Pacientes
 - Cadastro de pacientes com dados pessoais, históricos médicos e convênios.
 - Agendamento, consulta e cancelamento de atendimentos.
-- Prontuários eletrônicos com vinculação de exames e prescrições.
-- Acesso ao dashboard com consultas agendadas e telemedicina.
+- Prontuários eletrônicos.
+- Acesso ao dashboard com consultas agendadas e opção para novos agendamentos.
 
 ### 🧑‍🔬 Gestão de Profissionais de Saúde
 - Cadastro de médicos, enfermeiros e técnicos.
 - Gerenciamento de agendas e horários.
 - Registro de prescrições eletrônicas, com CRM validado.
-
+- Apenas usuários logados com perfil administrativo consegue manipular os endpoints dos profissionais
+  
 ### 🏢 Administração Hospitalar
-- Controle de leitos (ocupados, disponíveis e em limpeza).
+- Controle de leitos (ocupados, disponíveis e total).
 - Gerenciamento de estoque de suprimentos e medicamentos.
-- Relatórios financeiros e administrativos com filtros por período.
+- Relatórios financeiros e administrativos.
 
 ### 🔐 Segurança e Compliance
-- Controle de acesso baseado em papéis (RBAC).
+- Controle de acesso baseado em perfis.
 - Autenticação via token (JWT) no Swagger.
 - Logs de ações críticas e conformidade com a LGPD.
 
----
+-------------------------------------------------
 
 ## 🔧 Tecnologias Utilizadas
 
@@ -40,11 +41,11 @@ O **VidaPlus** é um Sistema de Gestão Hospitalar e Serviços de Saúde desenvo
 - **ORM**: Entity Framework Core
 - **API RESTful**: com documentação via Swagger
 - **Segurança**: JWT + controle de acesso por perfil
-- **Frontend (protótipo)**: Razor Views
+- **Frontend (protótipo)**: Feito em React + JavaScript
 
----
+-------------------------------------------------
 
-## 📂 Estrutura do Projeto
+## 📂 Estrutura do back-end do Projeto
 
 📂 VidaPlus/
 │
@@ -70,7 +71,7 @@ O **VidaPlus** é um Sistema de Gestão Hospitalar e Serviços de Saúde desenvo
 └── Program.cs
 
 
----
+-------------------------------------------------
 
 ## 🔗 Endpoints Principais da API
 
@@ -79,13 +80,11 @@ O **VidaPlus** é um Sistema de Gestão Hospitalar e Serviços de Saúde desenvo
 | POST   | `/api/Auth/login`         | Login de usuário                 | Público         |
 | POST   | `/api/Auth/register`      | Cadastro de usuário admin        | Admin           |
 | GET    | `/api/Pacientes`          | Listar todos os pacientes        | Admin           |
-| POST   | `/api/Consultas`          | Cadastrar nova consulta          | Paciente/Profissional |
-| GET    | `/api/Leitos`             | Verificar leitos                 | Admin/Médicos   |
+| POST   | `/api/Consultas`          | Cadastrar nova consulta          | Pacientes       |
+| GET    | `/api/Leitos`             | Verificar leitos                 | Admin           |
 | GET    | `/api/Financeiro`         | Verificar finanças               | Admin           |
 
-📌 **Detalhes completos e documentação Swagger disponível em**: `/swagger`
-
----
+-------------------------------------------------
 
 ## 🧪 Testes e Autenticação
 
@@ -95,63 +94,3 @@ O **VidaPlus** é um Sistema de Gestão Hospitalar e Serviços de Saúde desenvo
   - **Administrador**:  
     - Email: `admedgar@vidaplus.com`  
     - Senha: `12345`
-
----
-
-## 📚 Referências
-
-- TROELSEN, Andrew; JAPIKSE, Philip. _Pro C# 7: with .NET and .NET Core_. 8. ed. New York: Apress, 2017.
-- GIARETTA, Ricardo. _API CRUD completa com C# e .NET 8 do zero | Passo a passo_. YouTube, 2024.  
-  Disponível em: https://www.youtube.com/watch?v=UXMKOgmQ7zI
-
----
-
-## 🛠️ Como Executar este Projeto
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/edgar010/VidaPlus.git
-
-   
----
-
-## 🔗 Endpoints Principais da API
-
-| Método | Endpoint                  | Descrição                        | Acesso          |
-|--------|---------------------------|----------------------------------|-----------------|
-| POST   | `/api/Auth/login`         | Login de usuário                 | Público         |
-| POST   | `/api/Auth/register`      | Cadastro de usuário admin        | Admin           |
-| GET    | `/api/Pacientes`          | Listar todos os pacientes        | Admin           |
-| POST   | `/api/Consultas`          | Cadastrar nova consulta          | Paciente/Profissional |
-| GET    | `/api/Leitos`             | Verificar leitos                 | Admin/Médicos   |
-| GET    | `/api/Financeiro`         | Verificar finanças               | Admin           |
-
-📌 **Detalhes completos e documentação Swagger disponível em**: `/swagger`
-
----
-
-## 🧪 Testes e Autenticação
-
-- Testes realizados via Swagger e protótipo frontend.
-- Para endpoints protegidos, utilize o botão **Authorize** no Swagger e insira o token JWT gerado após o login.
-- Usuários pré-cadastrados:
-  - **Administrador**:  
-    - Email: `admedgar@vidaplus.com`  
-    - Senha: `12345`
-
----
-
-## 📚 Referências
-
-- TROELSEN, Andrew; JAPIKSE, Philip. _Pro C# 7: with .NET and .NET Core_. 8. ed. New York: Apress, 2017.
-- GIARETTA, Ricardo. _API CRUD completa com C# e .NET 8 do zero | Passo a passo_. YouTube, 2024.  
-  Disponível em: https://www.youtube.com/watch?v=UXMKOgmQ7zI
-
----
-
-## 🛠️ Como Executar este Projeto
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/seuusuario/VidaPlus.git
-
