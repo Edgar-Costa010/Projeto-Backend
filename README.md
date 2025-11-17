@@ -94,3 +94,11 @@ O **VidaPlus** é um Sistema de Gestão Hospitalar e Serviços de Saúde desenvo
   - **Administrador**:  
     - Email: `admedgar@vidaplus.com`  
     - Senha: `12345`
+   
+  - **Paciente**
+    - E-mail: `pacienteangela@vidaplus.com`
+    - Senha: `12345`
+   
+  - **Profissional**
+      - E-mail: `medicaadriely@vidaplus.com`
+      - Senha: `12345`
